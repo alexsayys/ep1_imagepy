@@ -143,11 +143,10 @@ class Pymagem:
 
     # NECESSÁRIO CORREÇÃO
     def paste(self, fonte, X, Y):
-
+        '''
+            Método que sobrepõe a matriz criada em crop em outra matriz, levando em consideração o deslocamento.
+        '''
         for i in range(fonte.nlins):
             for j in range(fonte.ncols):
-                if 0 <= i + Y < self.nlins and 0 <= j + X < self.ncols:
-                    if X < 0:  # Verifica se X é menor que zero
-                        self.data[i + Y - X][j] = fonte.data[i][j]  # Deslocamento para cima
-                    else:
-                        self.data[i + Y][j + X] = fonte.data[i][j]
+                if 0 <= i + X < self.nlins and 0 <= j + Y < self.ncols:
+                    self.data[i + X][j + Y] = fonte.data[i][j]
