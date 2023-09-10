@@ -62,6 +62,17 @@ def main():
     print("\nteste paste em img2:")
     print(img2)
 
+    img4 = img1 + img2
+    print("\nteste __add__:")
+    print(img4)
+
+    img5 = img1 * 0.3
+    print("\nteste __mul__:")
+    print(img5)
+
+    img6 = img5 + img2 * -1.5
+    print("\nteste __add__ e __mul__ :")
+    print(img6)
 
 if __name__ == "__main__":
     main()
