@@ -99,28 +99,24 @@ class Pymagem:
     # escreva os demais métodos aqui
     def __add__(self, other):
 
-        soma = []
-        for L in range(self.nlins):
-            linha_soma = []
-            for C in range(self.ncols):
-                r = self.data[L][C] + other.data[L][C]
-                linha_soma.append(r)
-            soma.append(linha_soma)
+        copia = Pymagem(self.nlins, self.ncols, self.valor)
 
-        return Pymagem(self.nlins, self.ncols, r)
+        for L in range(self.nlins):
+            for C in range(self.ncols):
+                copia.data[L][C] = self.get(L, C) + other.get(L, C)
+
+        return copia
 
 
     def __mul__(self, other):
 
-        mul = []
-        for L in range(self.nlins):
-            linha_mul = []
-            for C in range(self.ncols):
-                r = self.data[L][C] * other
-                linha_mul.append(r)
-            mul.append(linha_mul)
+        copia = Pymagem(self.nlins, self.ncols, self.valor)
 
-        return Pymagem(self.nlins, self.ncols, r)
+        for L in range(self.nlins):
+            for C in range(self.ncols):
+                copia.data[L][C] = self.get(L, C) * other
+
+        return copia
 
     def size(self):
 
@@ -163,9 +159,8 @@ class Pymagem:
             row = self.data[i][E:D]
             cropped_data.append(row)
 
-        return Pymagem(len(cropped_data), len(cropped_data[0]), valor=self.valor)
+        return Pymagem(len(cropped_data), len(cropped_data[0]), self.valor)
 
-    # NECESSÁRIO CORREÇÃO
     def paste(self, fonte, X, Y):
         '''
             Método que sobrepõe a matriz criada em crop em outra matriz, levando em consideração o deslocamento.
