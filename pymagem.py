@@ -103,7 +103,6 @@ class Pymagem:
         for L in range(self.nlins):
             linha_soma = []
             for C in range(self.ncols):
-                #f 0 <= i + X < self.nlins and 0 <= j + Y < self.ncols:
                 r = self.data[L][C] + other.data[L][C]
                 linha_soma.append(r)
             soma.append(linha_soma)
@@ -112,11 +111,11 @@ class Pymagem:
 
 
     def __mul__(self, other):
+
         mul = []
         for L in range(self.nlins):
             linha_mul = []
             for C in range(self.ncols):
-                # f 0 <= i + X < self.nlins and 0 <= j + Y < self.ncols:
                 r = self.data[L][C] * other
                 linha_mul.append(r)
             mul.append(linha_mul)
