@@ -107,7 +107,6 @@ class Pymagem:
 
         return copia
 
-
     def __mul__(self, other):
 
         copia = Pymagem(self.nlins, self.ncols, self.valor)
@@ -130,17 +129,16 @@ class Pymagem:
 
         self.data[lin][col] = valor
 
-        return "PUT utilizado"
 
     def crop(self, E=0, S=0, D=None, I=None):
 
         '''
         Testa se E e S foram especificados ou são menor que 0
         '''
-        if D is None or D > self.nlins:
-            D = self.nlins + 1 #Precisa do +1 se não é retornado um elemento a menos
-        if I is None or I > self.ncols:
-            I = self.ncols
+        if D is None or D > self.ncols:
+            D = self.ncols 
+        if I is None or I > self.nlins:
+            I = self.nlins
 
         '''
         Testa se E e S foram especificados ou são menor que 0

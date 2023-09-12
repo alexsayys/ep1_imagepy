@@ -74,5 +74,12 @@ def main():
     print("\nteste __add__ e __mul__ :")
     print(img6)
 
+    print("\nTESTE PLATAFORMA")
+    ss = Pymagem(3, 1, 3).crop(0, 1, 1, 2)
+    print(ss)
+
+    print(Pymagem(2, 3, 3).put(0, 0, -1))
+    print(Pymagem(3, 4, 4).crop())
+
 if __name__ == "__main__":
     main()
